@@ -31,8 +31,9 @@ public class InlinePointConstraintMain : MonoBehaviour
     float dt = Time.deltaTime;
     Vector3 c = Object.transform.position - Target.transform.position;
 
-    v += (-Beta / dt) * c;
-    v *= 0.9f; // temp magic cheat
+    v += ((-Beta / dt) * c - v);
+
+    // v *= 0.9f; // temp magic cheat
     Object.transform.position += v * dt;
   }
 }
